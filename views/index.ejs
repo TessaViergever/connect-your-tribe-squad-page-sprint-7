@@ -1,0 +1,75 @@
+<%- include('./partials/head') %>
+
+  <div id="container-of-all">
+    <header>
+      <div id="container-header-img">
+        <img id="header-background-img" src="Images/sunset-background.jpg" alt="zonsondergang met palmbomen">
+        <img id="header-profile-img" src="Images/profielfoto-tessaviergever.JPG" href="" alt="Een lachende Tessa Viergever">
+      </div>
+      <div id="container-header-text">
+        <h1><%= member.name %> <%= member.surname %></h1>
+        <h2><%= member.bio.html %> </h2>
+      </div>
+    </header>
+
+    <main>
+
+      <div id="about-me-section-cards">
+      <section class="about-card" id="about-card-1">
+        <ol>♥
+          <li>nieuwe dingen leren</li>
+          <li>indoor jungle</li>
+          <li>sporten</li>
+          <li>wandelen</li>
+          <li>macramé</li>
+          <li>dansen</li>
+          <li>reizen</li>
+        </ol>
+      </section>
+
+      <section class="about-card" id="about-card-2">
+        <ol>🧩
+          <li>problemen oplossen</li>
+          <li>mensen helpen</li>
+          <li>psychologie</li>
+          <li>technologie</li>
+          <li>creativiteit</li>
+        </ol>
+      </section>
+
+      <section class="about-card" id="about-card-3">
+        <ol>🔮
+          <li>locatie onafhankelijk</li>
+          <li>blijven ontwikkelen</li>
+          <li>de wereld zien</li>
+          <li>authenticiteit & bevlogenheid</li>
+          <li>vrijheid</li>
+        </ol>
+      </section>
+    </div>
+
+    </main>
+
+    <footer>
+      <ol>
+        <a>
+          <li>📱</li>
+        </a>
+        <a>
+          <li>💻</li>
+        </a>
+        <a>
+          <li>📸</li>
+        </a>
+        <a>
+          <li>☎</li>
+        </a>
+        <a>
+          <li>☎</li>
+        </a>
+      </ol>
+    </footer>
+  </div>
+
+
+  <%- include('./partials/foot') %>
