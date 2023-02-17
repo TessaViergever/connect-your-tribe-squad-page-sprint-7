@@ -1,1 +1,82 @@
-<h1>hoi</h1>
+<%- include('./partials/head') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="./scripts/datamaps.world.min.js"></script>
+<h1>Welke student heeft welk land bezocht?</h1>
+<h2>Squad C</h2>
+<div id="container" style="position: relative; width: 650px; height: 350px;"></div>
+<script>
+    
+    var allMembers = <%- JSON.stringify(squad.members) %>
+    console.log(allMembers)
+
+    var nieuwdatading = {}
+
+    // Loop door alle members heen
+    allMembers.forEach(function(member) {
+        // Kennen we dit land al?
+        if (nieuwdatading[member.visitedCountry]) {
+            // Zo ja, voeg aan dat land deze persoon toe
+            nieuwdatading[member.visitedCountry].classmatesVisited.push(member.name)
+        } else {
+            // Anders, voeg dat land toe, met deze persoon
+            nieuwdatading[member.visitedCountry] = {
+                fillKey: 'visitedCountryColor',
+                classmatesVisited: [
+                    member.name
+                ]
+            }
+        }
+    });
+
+    console.log(nieuwdatading)
+
+    var map = new Datamap( //inladen van datamap
+        {
+            element: document.getElementById('container'), //= defaultsettings van datamap aanpassen
+
+            fills: {                                       // = landkleuren aanpassen
+                visitedCountryColor: '#66e5bf',
+                defaultFill: '#050542'
+            },
+
+            // I want this to delete the hover highlight but it's not worrrrking
+            // geographyConfig: {
+            //     highlightOnHover: false,
+            // },
+
+            data: nieuwdatading,
+
+            geographyConfig: {                                          //pop up met data hoeveel mensen bezocht + namen
+                popupTemplate: function (geo, data) {
+                    let classmateNames = '';
+                    data.classmatesVisited.forEach((classmate, index) => {
+                        if (index == data.classmatesVisited.length - 1) {
+                            classmateNames += classmate
+                        } else {
+                            classmateNames += classmate + ", "
+                        }
+                    })
+
+                    return `
+                <div class="hoverinfo">
+                    <strong>
+                        ${geo.properties.name}
+                    </strong>
+                    <p>Aantal klasgenoten: ${data.classmatesVisited.length}</p>
+                    <p>Wie: ${classmateNames}</p>
+                </div>`
+                }
+            }
+        });
+
+</script>
+
+
+
+
+<%- include('./partials/foot') %>
+
+
+  

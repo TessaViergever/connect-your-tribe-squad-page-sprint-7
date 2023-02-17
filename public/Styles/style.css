@@ -4,6 +4,14 @@
   margin: 0;
 }
 
+:root {
+--fdnd-color-minty: rgba(102, 229, 191, 1);
+--fdnd-color-dark-blue: rgba(5, 5, 66, 1);
+--fdnd-color-ligth-purple: rgba(166, 117, 245, 1);
+--background-color: rgba(189, 227, 217, 0.644);
+}
+
+
 html {
   height: 100vh;
 }
@@ -15,95 +23,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(189, 227, 217);
-  color: #293944;
+  background-color: var(--background-color);
+  color: var(--fdnd-color-dark-blue);
 }
-
-ol {
-  list-style:circle;
-}
-
-#container-of-all {
-  background: linear-gradient(0deg, rgba(244, 156, 15, 0.974) rgba(244, 156, 15, 0.974) 10%, 10%, #4d5d7e 100%);
-  box-shadow: 0 0 20px 20px rgba(0, 0, 0, .1);
-  border: 1px solid hotpink;
-  /* margin: 3rem 5rem 3rem 5rem; */
-  border-radius: 2%;
-  
-}
-
-
-img {
-  width: 12em;
-  border-radius: 10em;
-  border: 5px solid #fff;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, .2);
-  position: relative;
-  top: 1rem;
-  transition: .25s .15s;
-}
-
-#header-background-img {
-  width: 100%;
-}
-
-#container-header-img {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(43, 80, 81);
-}
-
-
-#about-me-section-cards{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: space-around;
-}
-
-.about-card {
-  border: 1px solid rebeccapurple;
-  border-radius: 2%;
-}
-
-/* article {
-  width: 50vw;
-  max-width: 25em;
-  min-width: 20em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  background: rgb(43, 80, 81);
-  background: linear-gradient(0deg, rgba(244, 156, 15, 0.974) rgba(244, 156, 15, 0.974) 10%, 10%, #4d5d7e 100%);
-  box-shadow: 0 0 20px 20px rgba(0, 0, 0, .1);
-  border-radius: 1rem;
-  position: relative;
-  transition: .25s;
-} */
-
-
 
 h1 {
-  margin: 2rem;
-  color: rgba(244, 156, 15, 0.974);
+  margin: 1rem;
+  color: var(--fdnd-color-dark-blue);
   
 }
 
 h2 {
-  margin: 2rem;
+  margin: 1rem;
   font-size: medium;
-  color: rgba(244, 156, 15, 0.974);
+  color: var(--fdnd-color-dark-blue);
 }
 
-
-footer ol {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  list-style: none;
-  margin-top: 2em;
-  background-color: rgb(43, 80, 81);
-  padding: 1em;
+#container {
+  border: 1px solid hotpink;
 }

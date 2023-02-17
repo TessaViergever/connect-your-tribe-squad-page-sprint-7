@@ -6,7 +6,20 @@ import express from 'express' // Importeer express uit de node_modules map
 const url ='https://whois.fdnd.nl/api/v1/squad/squat-c-2022?orderBy=name&direction=ASC' 
 const data = await fetch(url).then((response) => response.json()) 
 
-console.log(data.squad.members)
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+// TODO: alle landen aanvullen
+const possibleCountries = ['ARG', 'AUS', 'AUT', 'BEL', 'BGR', 'NLD', 'USA', 'CAN', 'THA', 'FRA']
+const maxFromPossibleCountries = possibleCountries.length - 1
+
+data.squad.members.forEach(function(member) {
+  if (!member.visitedCountry) {
+    member.visitedCountry = []
+    member.visitedCountry.push(possibleCountries[getRandomInt(maxFromPossibleCountries)])
+  }
+})
 
 // Maak een nieuwe express app aan
 const app = express()
